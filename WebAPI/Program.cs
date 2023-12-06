@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
 using Application;
+using Persistence;
 
 namespace WebAPI
 {
@@ -15,6 +16,8 @@ namespace WebAPI
 
 
             builder.Services.AddControllers();
+            builder.Services.AddApplicationServices();
+            builder.Services.AddPersistenceServices(builder.Configuration);
             
             builder.Services.AddMediatR(configuration => 
             { 
